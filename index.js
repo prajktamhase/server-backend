@@ -25,6 +25,21 @@ app.get('/student',(req,res)=>{
 
      app.post('/students',(req,res)=>{
         const{name,age,mobile,email}=req.body;
+        const id=math.floor(math.random()*10000)+1;
+        const newStudent={
+            'name':name,
+            'age':age,
+            'mobile':mobile,
+            'email':email,
+
+        }
+        students.push(newStudent);
+        res.json({
+            success:true,
+            data:newStudent,
+            message:"successfully added new student",
+        })
+
      })
 app.listen(PORT,()=>{
     console.log(`Server is running${PORT}.`);
